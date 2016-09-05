@@ -2,16 +2,16 @@
 
 class House {
 
-  constructor(address, square_feet, num_bedrooms, num_baths, cost, down_payment, sold, has_tenants) {
-    this.address = address
-    this.square_feet = square_feet
-    this.num_bedrooms = num_bedrooms || 3
-    this.num_baths = num_baths || 2
-    this.cost = cost || 320000
-    this.down_payment = down_payment || 0.20
-    this.sold = sold || false
-    this.short_sale = short_sale
-    this.has_tenants = has_tenants || false
+  constructor(property) {
+    this.address = property["address"];
+    this.square_feet = property["square_feet"];
+    this.num_bedrooms = property["num_bedrooms"] || 3;
+    this.num_baths = property["num_baths"] || 2;
+    this.cost = property["cost"] || 320000;
+    this.down_payment = property["down_payment"] || 0.20;
+    this.sold = property["sold"] || false;
+    this.short_sale = property["short_sale"];
+    this.has_tenants = property["has_tenants"] || false;
   }
 
   obscure_address() {
@@ -31,3 +31,17 @@ class House {
     return `${obscure_address} : ${square_feet} sq. ft., ${num_bedrooms} bed, ${num_baths} bath. ${cost}`
   }
 }
+
+let house_prop = [];
+house_prop["address"] = "Jakarta";
+house_prop["square_feet"] = 200;
+house_prop["num_bedrooms"] = 4;
+house_prop["num_baths"] = 4;
+house_prop["cost"] = 1000000000;
+house_prop["down_payment"] = 300000000;
+house_prop["sold"] = true;
+house_prop["short_sale"] = true;
+house_prop["has_tenants"] = true;
+
+let minimalis = new House(house_prop);
+console.log(minimalis.down_payment)
